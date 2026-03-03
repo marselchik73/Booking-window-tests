@@ -21,9 +21,12 @@
 
 ### В Postman
 
-Импортируйте нужную коллекцию через **File → Import**:
+Импортируйте нужные коллекции через **File → Import**:
 - `Booking_Window_Positive.json` — позитивные сценарии (ручная проверка)
 - `Booking_Window_Negative.json` — негативные сценарии (ручная проверка)
+- `Booking_Window_Positive_Auto.json` — позитивные сценарии с автотестами
+- `Booking_Window_Negative_Auto.json` — негативные сценарии с автотестами
+
 
 ### Из командной строки (Newman)
 
