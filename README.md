@@ -12,7 +12,21 @@
 
 В папке `postman` находятся следующие коллекции:
 
-- `Booking_Window_Positive.json` — позитивные тесты (ручные).
-- `Booking_Window_Positive_Auto.json` — позитивные тесты (автоматизированные).
-- `Booking_Window_Negative.json` — негативные тесты (ручные).
-- `Booking_Window_Negative_Auto.json` — негативные тесты (автоматизированные).
+- `Booking_Window_Positive.json` — позитивные тесты (ручные)
+- `Booking_Window_Positive_Auto.json` — позитивные тесты (автоматизированные)
+- `Booking_Window_Negative.json` — негативные тесты (ручные)
+- `Booking_Window_Negative_Auto.json` — негативные тесты (автоматизированные)
+
+## Запуск тестов
+
+### В Postman
+
+Импортируйте нужную коллекцию через **File → Import**: 
+
+`Booking_Window_Positive.json` — позитивные сценарии (ручная проверка)
+`Booking_Window_Negative.json` — негативные сценарии (ручная проверка)
+
+### Из командной строки (Newman): 
+
+newman run postman/Booking_Window_Positive_Auto.json
+newman run postman/Booking_Window_Negative_Auto.json 
