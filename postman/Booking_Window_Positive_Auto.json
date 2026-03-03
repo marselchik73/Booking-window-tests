@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "8bb80225-1c34-46b6-a5eb-45e89ec37aa8",
+		"name": "Booking window the positive auto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31356568",
+		"_collection_link": "https://gold-astronaut-31825.postman.co/workspace/skillbox~cc20bca5-f2c8-4fb0-844e-5f8dc436853c/collection/31356568-8bb80225-1c34-46b6-a5eb-45e89ec37aa8?action=share&source=collection_link&creator=31356568"
+	},
+	"item": [
+		{
+			"name": "Успешное создание заявки",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 Created\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Response has the same data as request\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    const requestData = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(responseData).to.include.keys(Object.keys(requestData));\r",
+							"    pm.expect(responseData.name).to.eql(requestData.name);\r",
+							"    pm.expect(responseData.email).to.eql(requestData.email);\r",
+							"    pm.expect(responseData.phone).to.eql(requestData.phone);\r",
+							"});\r",
+							"pm.test(\"Response contains an 'id' field\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('id');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван Петров\",\r\n    \"email\": \"ivan.petrov@example.com\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Имя с пробелами",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 Created\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Response has the same data as request\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    const requestData = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(responseData).to.include.keys(Object.keys(requestData));\r",
+							"    pm.expect(responseData.name).to.eql(requestData.name);\r",
+							"    pm.expect(responseData.email).to.eql(requestData.email);\r",
+							"    pm.expect(responseData.phone).to.eql(requestData.phone);\r",
+							"});\r",
+							"pm.test(\"Response contains an 'id' field\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('id');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Петр Сергеевич Иванов\",\r\n    \"email\": \"p.s.ivanov@example.com\",\r\n    \"phone\": \"+79876543210\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email со спецсимволами (+, _, -)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 Created\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Response has the same data as request\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    const requestData = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(responseData).to.include.keys(Object.keys(requestData));\r",
+							"    pm.expect(responseData.name).to.eql(requestData.name);\r",
+							"    pm.expect(responseData.email).to.eql(requestData.email);\r",
+							"    pm.expect(responseData.phone).to.eql(requestData.phone);\r",
+							"});\r",
+							"pm.test(\"Response contains an 'id' field\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('id');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Тест Плюс\",\r\n    \"email\": \"user+tag@gmail.com\",\r\n    \"phone\": \"+71234567890\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Минимальная длина имени (1 символ)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 Created\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Response has the same data as request\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    const requestData = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(responseData).to.include.keys(Object.keys(requestData));\r",
+							"    pm.expect(responseData.name).to.eql(requestData.name);\r",
+							"    pm.expect(responseData.email).to.eql(requestData.email);\r",
+							"    pm.expect(responseData.phone).to.eql(requestData.phone);\r",
+							"});\r",
+							"pm.test(\"Response contains an 'id' field\", () => {\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('id');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"J\",\r\n    \"email\": \"j@test.co\",\r\n    \"phone\": \"+70123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

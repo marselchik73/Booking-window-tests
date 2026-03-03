@@ -1,0 +1,661 @@
+{
+	"info": {
+		"_postman_id": "59792ae8-299f-4071-a54a-271156ecc583",
+		"name": "Booking window negative auto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31356568",
+		"_collection_link": "https://gold-astronaut-31825.postman.co/workspace/skillbox~cc20bca5-f2c8-4fb0-844e-5f8dc436853c/collection/31356568-59792ae8-299f-4071-a54a-271156ecc583?action=share&source=collection_link&creator=31356568"
+	},
+	"item": [
+		{
+			"name": "Пустое поле \"name\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"test@example.com\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Имя с цифрами",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван123\",\r\n    \"email\": \"test@example.com\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Имя со спецсимволами (@, #, $)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван@Петров\",\r\n    \"email\": \"test@example.com\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Имя из одних пробелов",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"   \",\r\n    \"email\": \"test@example.com\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Некорректный email (без @)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivanpetrovmail.ru\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Некорректный email (без домена)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivan@\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Телефон с недостаточным количеством цифр",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivan@mail.ru\",\r\n    \"phone\": \"+7123\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Телефон с лишними цифрами",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivan@mail.ru\",\r\n    \"phone\": \"+712345678901\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Неправильный префикс телефона (8 вместо +7)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivan@mail.ru\",\r\n    \"phone\": \"89261234567\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Телефон с пробелами и скобками",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivan@mail.ru\",\r\n    \"phone\": \"+7 (926) 123-45-67\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Все поля пустые",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\",\r\n    \"phone\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Телефон с ведущей 8 (ожидаем ошибку или преобразование)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"email\": \"ivan@mail.ru\",\r\n    \"phone\": \"89261234567\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "отсутствует поле email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"[EXPECTED 400] Status is not 200/201\", () => {\r",
+							"    pm.expect(pm.response.code).to.not.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Response does NOT contain the sent data (validation should fail)\", () => {\r",
+							"    const resp = pm.response.json();\r",
+							"    const req = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(resp).to.not.include(req);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван\",\r\n    \"phone\": \"+79123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

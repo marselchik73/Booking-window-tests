@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "5bb43041-24c8-4707-8eca-5c8aacf71651",
+		"name": "Booking window the positive",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31356568",
+		"_collection_link": "https://gold-astronaut-31825.postman.co/workspace/skillbox~cc20bca5-f2c8-4fb0-844e-5f8dc436853c/collection/31356568-5bb43041-24c8-4707-8eca-5c8aacf71651?action=share&source=collection_link&creator=31356568"
+	},
+	"item": [
+		{
+			"name": "Успешное создание заявки",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Иван Петров\",\r\n    \"email\": \"ivan.petrov@example.com\",\r\n    \"phone\": \"+79123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Минимальная длина имени (1 символ)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"J\",\r\n    \"email\": \"j@test.co\",\r\n    \"phone\": \"+70123456789\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Имя с пробелами",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Петр Сергеевич Иванов\",\r\n    \"email\": \"p.s.ivanov@example.com\",\r\n    \"phone\": \"+79876543210\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
