@@ -1,6 +1,7 @@
 # Booking Window Tests
 
 Тесты для API окна бронирования (поля: имя, email, телефон).
+Окно бронирования доступно по ссылке: [marselchik73.github.io/Booking-window](https://marselchik73.github.io/Booking-window/)
 
 **Важно:**  
 Тесты написаны в расчёте на реальное API с валидацией данных.  
