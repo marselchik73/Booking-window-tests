@@ -3,6 +3,18 @@
 Тесты для API окна бронирования (поля: имя, email, телефон).
 Окно бронирования доступно по ссылке: [marselchik73.github.io/Booking-window](https://marselchik73.github.io/Booking-window/)
 
+## Эндпоинт для тестирования
+- URL: `https://jsonplaceholder.typicode.com/posts`
+- Метод: `POST`
+- Заголовки: `Content-Type: application/json`
+- Тело запроса (пример):
+  ```json
+  {
+    "name": "Иван Петров",
+    "email": "ivan@example.com",
+    "phone": "89991234567"
+  }
+
 **Важно:**  
 Тесты написаны в расчёте на реальное API с валидацией данных.  
 В данный момент используется тестовый бэкенд (jsonplaceholder), 
